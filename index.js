@@ -35,24 +35,8 @@ app.get('/custom_elements', (req, res) => {
 	res.sendFile(respath);
 })
 
-app.get('/simplecvc', (req, res) => {
-	let respath = __dirname + '/public/basiccvc.html';
+app.get('/web_components', (req, res) => {
+	let respath = __dirname + '/public/html_web_component.html';
 	res.sendFile(respath);
 })
-
-app.get('/customizedlist', (req, res) => {
-	let respath = __dirname + '/public/customizedlist.html';
-	res.sendFile(respath);
-})
-
-app.get('/lifecycles', (req, res) => {
-	let respath = __dirname + '/public/lifecycles.html';
-	res.sendFile(respath);
-})
-
-app.get('/cardcomponent', (req, res) => {
-	let respath = __dirname + '/public/cardcomponent.html';
-	res.sendFile(respath);
-})
-
 app.listen(port, () => console.log(`Custom element app listening on port ${port}!`))
