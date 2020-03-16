@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML template tag</title>
+    <!-- Add the polyfill before any import-->
+    <script src="js/webcomponents-lite.js"></script>
+    <!-- Import file through link tag -->
+    <link rel="import" href="my_template.html" id="my_template_file">
+  </head>
+  <body>
+    <h1>Template tag example</h1>
+    <button type="button" id="btn_1">Activate template</button>
+    <script>
+      var counter = 0;
+      window.addEventListener("DOMContentLoaded", e => {
+        document.getElementById("btn_1").addEventListener("click", e => {
+          // Get the link tag of the import
+          var templateLink = document.querySelector("#my_template_file");
+          // Use import attribute to get the import content
+          var templateFile = templateLink.import;
+          // Change the content of the template
+          var template = templateFile.querySelector("#my_template");
+          template.content.querySelector("#inner_content").textContent = counter++;
+          // Import the content into a new node. true means its a deep copy
+          var newNode = document.importNode(template.content, true);
+          // Add the template
+          document.body.appendChild(newNode);
+        })
+      })
+    </script>
+  </body>
+</html>

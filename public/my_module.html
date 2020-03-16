@@ -1,0 +1,11 @@
+<template id="my_template">
+  <p> This is a template! <span id="inner_content"></span></p>
+  <script>
+    console.log("The template has been instantiated");
+  </script>
+</template>
+<script>
+  var thisImportDoc = document.currentScript.ownerDocument;
+  var tmplNode = thisImportDoc.querySelector('#my_template');
+  document.body.appendChild(tmplNode.cloneNode(true));
+</script>

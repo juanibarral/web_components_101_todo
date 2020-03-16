@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML template tag</title>
+    <link rel="stylesheet" href="css/alertmessage.css">
+    <script type="text/javascript" src="js/simplealertmessage.js"></script>
+  </head>
+  <body>
+    <h1>Custom Element example</h1>
+    <alert-message id="message" visible>
+      <div class="alert">
+          <div class="error">This is an error message</div>
+      </div>
+    </alert-message>
+    <button type="button" id="btn_1">Activate alert message</button>
+    <script>
+      var counter = 0;
+      window.addEventListener("DOMContentLoaded", e => {
+        document.getElementById("btn_1").addEventListener("click", e => {
+          var alert = document.getElementById("message");
+          alert.visible = !alert.visible;
+        })
+      })
+    </script>
+  </body>
+</html>
